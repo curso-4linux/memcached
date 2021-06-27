@@ -1,0 +1,14 @@
+---
+- name: Instala ETCD Server
+  apt:
+    name: etcd
+    update_cache: yes
+  notify:
+    - Start Etcd
+  tags: etcd
+- name: Inicia e ativa na inicializacao o servico etcd
+  systemd:
+    name: etcd
+    state: started
+    enabled: yes
+  tags: etcd    

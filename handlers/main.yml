@@ -1,0 +1,6 @@
+---
+- name: Start Etcd
+  service: name=etcd state=started
+  
+- name: Restart Etcd
+  service: name=etcd state=restarted
