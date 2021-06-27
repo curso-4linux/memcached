@@ -1,14 +1,19 @@
 ---
-- name: Instala ETCD Server
+- name: Instala o pacote python3-memcache
   apt:
-    name: etcd
+    name: python3-memcache
+    update_cache: yes
+    
+- name: Instala o Memcached Server
+  apt:
+    name: memcached
     update_cache: yes
   notify:
-    - Start Etcd
-  tags: etcd
-- name: Inicia e ativa na inicializacao o servico etcd
+    - Start Memcached
+  tags: memcached
+- name: Inicia e ativa na inicializacao o servico Memcached
   systemd:
-    name: etcd
+    name: memcached
     state: started
     enabled: yes
-  tags: etcd    
+  tags: memcached    
